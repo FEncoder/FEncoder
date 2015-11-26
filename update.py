@@ -1,27 +1,32 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""
-remove outdated file or directory
-- file/dir
+"""FEncoder Updater
 
-remove outdated directory tree
---dir
+Usage:
+updater [--update [version_id]]
 
-create new directory
-+ dir
+FEU file instructions:
+    remove outdated file or directory
+    - file/dir
 
-copy new file or directory
-++src|dst
+    remove outdated directory tree
+    --dir
 
-copy existed file or directory
-c src|dst
+    create new directory
+    + dir
 
-move existed file or directory
-m src|dst
+    copy new file or directory
+    ++src|dst
 
-rename existed file or directory
-r src|dst
+    copy existed file or directory
+    c src|dst
+
+    move existed file or directory
+    m src|dst
+
+    rename existed file or directory
+    r src|dst
 """
 
 
@@ -34,6 +39,14 @@ import shutil
 class DirectoryNotFoundError(Exception):
     pass
 
+def check_updates():
+    pass
+
+if len(sys.argv) == 2 and sys.argv[1] == '--update':
+    pass
+else:
+    check_updates()
+
 
 dst_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 # random!!!
@@ -43,9 +56,9 @@ src_dir = os.path.join(os.environ['TEMP'], 'FEncoder')
 
 # downloading!!!
 
-# vdf
+# feu
 
-with open(os.path.join(src_dir, 'R2.vdf'), 'rb') as f:
+with open(os.path.join(src_dir, 'R2.feu'), 'rb') as f:
     for line in f:
         line = line.decode().strip()
         content = line[2:]
@@ -84,4 +97,3 @@ with open(os.path.join(src_dir, 'R2.vdf'), 'rb') as f:
             src_path = os.path.join(dst_dir, src_path)
             dst_path = os.path.join(dst_dir, dst_path)
             os.rename(src_path, dst_path)
-
