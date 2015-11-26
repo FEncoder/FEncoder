@@ -1,10 +1,10 @@
-#!/usr/bin/env python3
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 """FEncoder Updater
 
 Usage:
-updater [--update [version_id]]
+updater
 
 FEU file instructions:
     remove outdated file or directory
